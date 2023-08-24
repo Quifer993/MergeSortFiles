@@ -31,7 +31,7 @@ public class SorterInt extends ISorter{
                 }
                 else{
                     try{
-                        bigInteger2 = new BigInteger(s2);
+                        new BigInteger(s2);
                     }catch(Exception ee){
                         return SECOND_STRING_ERROR;
                     }
