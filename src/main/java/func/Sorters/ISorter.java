@@ -45,7 +45,6 @@ public class ISorter {
 
                         if(compareVariants == FIRST_STRING || compareVariants == FIRST_STRING_ERROR){
                             if(compareVariants != FIRST_STRING_ERROR){
-                                var t = compare(s1, lastElement);
                                 if(compare(lastElement, s1) == FIRST_STRING || lastElement == null){
                                     lastElement = s1;
                                     writer.write(s1 + "\n");
@@ -109,19 +108,22 @@ public class ISorter {
     }
 
     CompareVariants chooseNext(int compareAnswer) {
-        if(compareAnswer >= 0){
+        if(compareAnswer > 0){
             if(parser.getDirectSort() == DirectSort.ASCENDING){
                 return SECOND_STRING;
             }else{
                 return FIRST_STRING;
             }
         }
-        else{
+        else if(compareAnswer < 0){
             if(parser.getDirectSort() == DirectSort.ASCENDING){
                 return FIRST_STRING;
             }else{
                 return SECOND_STRING;
             }
+        }
+        else{
+            return FIRST_STRING;
         }
     }
 }
